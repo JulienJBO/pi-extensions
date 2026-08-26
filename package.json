@@ -1,0 +1,25 @@
+{
+  "name": "pi-extensions-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Collection of extensions, skills, and tools for Pi coding agent",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "typecheck": "npm run --workspaces --if-present typecheck",
+    "lint": "npm run --workspaces --if-present lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run --workspaces --if-present test"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^0.84.2",
+    "@earendil-works/pi-coding-agent": "^0.84.2",
+    "@types/node": "^22.13.0",
+    "prettier": "^3.5.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

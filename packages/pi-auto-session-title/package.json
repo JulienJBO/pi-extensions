@@ -1,0 +1,46 @@
+{
+  "name": "pi-auto-session-title",
+  "version": "0.1.0",
+  "description": "Automatically generates concise, descriptive session titles for Pi coding agent sessions",
+  "author": "Shakthi Sagar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakthi-sagar/pi-extensions.git",
+    "directory": "packages/pi-auto-session-title"
+  },
+  "homepage": "https://github.com/shakthi-sagar/pi-extensions/tree/main/packages/pi-auto-session-title#readme",
+  "bugs": {
+    "url": "https://github.com/shakthi-sagar/pi-extensions/issues"
+  },
+  "type": "module",
+  "main": "./src/index.ts",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "session",
+    "titles",
+    "auto-title"
+  ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "src",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": ">=0.80.0"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^0.84.2",
+    "typescript": "^5.7.0"
+  }
+}

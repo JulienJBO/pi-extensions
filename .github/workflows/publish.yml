@@ -1,0 +1,55 @@
+name: Publish to npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "Package to publish (all, pi-antigravity, pi-auto-session-title, pi-theme)"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - pi-antigravity
+          - pi-auto-session-title
+          - pi-theme
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Publish Packages
+        run: |
+          TARGET="${{ inputs.package }}"
+          if [ "$TARGET" = "all" ] || [ -z "$TARGET" ]; then
+            for pkg in packages/*; do
+              if [ -d "$pkg" ] && [ -f "$pkg/package.json" ]; then
+                echo "Publishing $pkg..."
+                npm publish --workspace="$pkg" --access public --provenance || true
+              fi
+            done
+          else
+            echo "Publishing packages/$TARGET..."
+            npm publish --workspace="packages/$TARGET" --access public --provenance
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
