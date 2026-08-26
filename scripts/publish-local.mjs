@@ -7,14 +7,25 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const packagesDir = path.join(rootDir, "packages");
 
-const targetArg = process.argv[2];
+// Check if an OTP or package argument was passed
+const args = process.argv.slice(2);
+let otpArg = "";
+let targetPkg = "";
+
+for (const arg of args) {
+  if (arg.startsWith("--otp=")) {
+    otpArg = arg;
+  } else if (!arg.startsWith("-")) {
+    targetPkg = arg;
+  }
+}
 
 console.log("🔍 Running typechecks and tests...");
 execSync("npm run typecheck", { stdio: "inherit", cwd: rootDir });
 execSync("npm run test", { stdio: "inherit", cwd: rootDir });
 
-const packageDirs = targetArg
-  ? [path.join(packagesDir, targetArg)]
+const packageDirs = targetPkg
+  ? [path.join(packagesDir, targetPkg)]
   : fs.readdirSync(packagesDir).map((dir) => path.join(packagesDir, dir));
 
 for (const pkgDir of packageDirs) {
@@ -47,7 +58,8 @@ for (const pkgDir of packageDirs) {
   console.log(`🚀 Publishing ${name}@${version} to npm...`);
   try {
     const relPkgDir = path.relative(rootDir, pkgDir);
-    execSync(`npm publish --workspace="${relPkgDir}" --access public`, {
+    const otpFlag = otpArg ? ` ${otpArg}` : "";
+    execSync(`npm publish --workspace="${relPkgDir}" --access public${otpFlag}`, {
       stdio: "inherit",
       cwd: rootDir,
     });
