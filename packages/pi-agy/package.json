@@ -1,15 +1,15 @@
 {
-  "name": "@shakthi-sagar/pi-antigravity",
-  "version": "0.6.0-multi.0",
+  "name": "pi-agy",
+  "version": "0.6.0",
   "description": "Antigravity / Cloud Code Assist provider for Pi with multi-account quota failover",
   "author": "Rahul Arya",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shakthi-sagar/pi-extensions.git",
-    "directory": "packages/pi-antigravity"
+    "directory": "packages/pi-agy"
   },
-  "homepage": "https://github.com/shakthi-sagar/pi-extensions/tree/main/packages/pi-antigravity#readme",
+  "homepage": "https://github.com/shakthi-sagar/pi-extensions/tree/main/packages/pi-agy#readme",
   "bugs": {
     "url": "https://github.com/shakthi-sagar/pi-extensions/issues"
   },

@@ -10,7 +10,7 @@ Each package in this repository is published independently to npm and can be ins
 
 | Package | Version | Description | Install Command |
 | :--- | :--- | :--- | :--- |
-| [`@shakthi-sagar/pi-antigravity`](./packages/pi-antigravity) | `0.6.0` | Antigravity / Cloud Code Assist provider with multi-account quota failover | `pi install npm:@shakthi-sagar/pi-antigravity` |
+| [`pi-agy`](./packages/pi-agy) | `0.6.0` | Antigravity / Cloud Code Assist provider with multi-account quota failover | `pi install npm:pi-agy` |
 | [`pi-auto-session-title`](./packages/pi-auto-session-title) | `0.1.0` | Automatically generates concise, searchable titles for your sessions | `pi install npm:pi-auto-session-title` |
 | [`pi-theme`](./packages/pi-theme) | `0.1.0` | Interactive theme switcher with `/theme` command & autocomplete | `pi install npm:pi-theme` |
 

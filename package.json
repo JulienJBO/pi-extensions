@@ -14,7 +14,7 @@
     "format:check": "prettier --check .",
     "test": "npm run --workspaces --if-present test",
     "publish:all": "node scripts/publish-local.mjs",
-    "publish:antigravity": "node scripts/publish-local.mjs pi-antigravity",
+    "publish:agy": "node scripts/publish-local.mjs pi-agy",
     "publish:title": "node scripts/publish-local.mjs pi-auto-session-title",
     "publish:theme": "node scripts/publish-local.mjs pi-theme"
   },

@@ -1,9 +1,9 @@
-# pi-antigravity
+# pi-agy
 
-[![npm version](https://img.shields.io/npm/v/pi-antigravity?logo=npm)](https://www.npmjs.com/package/pi-antigravity)
-[![license](https://img.shields.io/npm/l/pi-antigravity)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/pi-agy?logo=npm)](https://www.npmjs.com/package/pi-agy)
+[![license](https://img.shields.io/npm/l/pi-agy)](LICENSE)
 
-**pi-antigravity** is a [Pi Coding Agent](https://pi.dev) provider that lets Pi talk directly to Google Antigravity / Cloud Code Assist models — Gemini, plus the Claude and GPT-OSS models Antigravity also advertises. Sign in with Google, pick a model, and go. Under the hood it handles OAuth login, native streaming, model routing, quota diagnostics, and optional multi-account failover itself, so it never shells out to an external Antigravity CLI.
+**pi-agy** is a [Pi Coding Agent](https://github.com/earendil-works/pi) provider that lets Pi talk directly to Google Antigravity / Cloud Code Assist models — Gemini, plus the Claude and GPT-OSS models Antigravity also advertises. Sign in with Google, pick a model, and go. Under the hood it handles OAuth login, native streaming, model routing, quota diagnostics, and optional multi-account failover itself, so it never shells out to an external Antigravity CLI.
 
 > **Unofficial integration.** This project is not affiliated with or endorsed by Google. Use it only with an account and services you are authorized to access, and review its source before granting OAuth permissions.
 
@@ -27,25 +27,13 @@
 
 ## Install
 
-Install this multi-account fork from GitHub:
+Install directly from npm:
 
 ```bash
-pi install git:github.com/shakthi-sagar/pi-antigravity
+pi install npm:pi-agy
 ```
 
-The upstream single-account release remains available from npm:
-
-```bash
-pi install npm:pi-antigravity
-```
-
-Or install the latest upstream repository version:
-
-```bash
-pi install git:github.com/Rahularya01/pi-antigravity
-```
-
-Restart Pi (or run `/reload`) after installation. To update the npm package later, use `pi update npm:pi-antigravity`.
+Restart Pi (or run `/reload`) after installation. To update the npm package later, use `pi update npm:pi-agy`.
 
 ## Quick start
 
