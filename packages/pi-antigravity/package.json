@@ -1,5 +1,5 @@
 {
-  "name": "pi-antigravity",
+  "name": "@shakthi-sagar/pi-antigravity",
   "version": "0.6.0-multi.0",
   "description": "Antigravity / Cloud Code Assist provider for Pi with multi-account quota failover",
   "author": "Rahul Arya",
