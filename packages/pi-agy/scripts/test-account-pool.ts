@@ -49,7 +49,10 @@ assert.deepEqual(
 additional = [];
 pool.reset();
 accounts = await pool.resolve("account-1-key");
-assert.deepEqual(accounts.map((account) => account.label), ["account 1"]);
+assert.deepEqual(
+  accounts.map((account) => account.label),
+  ["account 1"],
+);
 pool.markRateLimited(accounts[0], accounts);
 assert.equal(pool.getPreferred().label, "account 1", "no transition without a linked fallback");
 
@@ -59,6 +62,9 @@ const brokenAdditionalAccounts = new AntigravityAccountPool({
   },
 });
 accounts = await brokenAdditionalAccounts.resolve("account-1-key");
-assert.deepEqual(accounts.map((account) => account.label), ["account 1"]);
+assert.deepEqual(
+  accounts.map((account) => account.label),
+  ["account 1"],
+);
 
 console.log("account pool: ok");

@@ -8,11 +8,12 @@ Each package in this repository is published independently to npm and can be ins
 
 ## 📦 Packages
 
-| Package | Version | Description | Install Command |
-| :--- | :--- | :--- | :--- |
-| [`pi-agy`](./packages/pi-agy) | `0.6.0` | Antigravity / Cloud Code Assist provider with multi-account quota failover | `pi install npm:pi-agy` |
-| [`pi-auto-session-title`](./packages/pi-auto-session-title) | `0.1.0` | Automatically generates concise, searchable titles for your sessions | `pi install npm:pi-auto-session-title` |
-| [`pi-theme`](./packages/pi-theme) | `0.1.0` | Interactive theme switcher with `/theme` command & autocomplete | `pi install npm:pi-theme` |
+| Package                                                     | Version | Description                                                                                 | Install Command                        |
+| :---------------------------------------------------------- | :------ | :------------------------------------------------------------------------------------------ | :------------------------------------- |
+| [`pi-agy`](./packages/pi-agy)                               | `0.6.0` | Antigravity / Cloud Code Assist provider with multi-account quota failover                  | `pi install npm:pi-agy`                |
+| [`pi-auto-session-title`](./packages/pi-auto-session-title) | `0.1.0` | Automatically generates concise, searchable titles for your sessions                        | `pi install npm:pi-auto-session-title` |
+| [`pi-theme`](./packages/pi-theme)                           | `0.1.0` | Interactive theme switcher with `/theme` command & autocomplete                             | `pi install npm:pi-theme`              |
+| [`pi-skill-updates`](./packages/pi-skill-updates)           | `0.1.0` | Scans installed skills, checks for remote updates, and provides interactive update commands | `pi install npm:pi-skill-updates`      |
 
 ---
 
@@ -43,6 +44,7 @@ pi remove npm:<package-name>
 This monorepo uses standard npm workspaces.
 
 ### Setup
+
 ```bash
 # Clone the repository
 git clone https://github.com/shakthi-sagar/pi-extensions.git
@@ -53,6 +55,7 @@ npm install
 ```
 
 ### Type Checking & Testing
+
 ```bash
 # Typecheck all packages
 npm run typecheck
@@ -62,6 +65,7 @@ npm test
 ```
 
 ### Adding a New Extension
+
 1. Create a new directory inside `packages/pi-<name>`.
 2. Add a `package.json` with `"keywords": ["pi-package"]` and a `"pi"` section.
 3. Write your extension inside `src/index.ts`.

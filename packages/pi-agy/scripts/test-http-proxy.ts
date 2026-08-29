@@ -21,7 +21,9 @@ globalThis.fetch = (async (_input: RequestInfo | URL, init?: RequestInit) => {
 }) as typeof fetch;
 
 try {
-  const response = await antigravityFetch("https://cloudcode-pa.googleapis.com", { method: "HEAD" });
+  const response = await antigravityFetch("https://cloudcode-pa.googleapis.com", {
+    method: "HEAD",
+  });
   assert.equal(response.status, 204);
   assert.ok(requestInit);
   assert.equal("dispatcher" in requestInit, false);

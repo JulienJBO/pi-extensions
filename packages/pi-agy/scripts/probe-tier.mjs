@@ -46,9 +46,7 @@ async function post(path, body) {
 function sanitize(value) {
   return JSON.parse(
     JSON.stringify(value, (k, v) =>
-      /token|auth|secret|email|credential|noticeText|privacy/i.test(String(k))
-        ? "[redacted]"
-        : v,
+      /token|auth|secret|email|credential|noticeText|privacy/i.test(String(k)) ? "[redacted]" : v,
     ),
   );
 }
@@ -99,9 +97,7 @@ for (const [name, body] of Object.entries(bodies)) {
   out.loadCodeAssist[name] = sanitize(await post("/v1internal:loadCodeAssist", body));
 }
 
-out.retrieveUserQuotaSummary = sanitize(
-  await post("/v1internal:retrieveUserQuotaSummary", {}),
-);
+out.retrieveUserQuotaSummary = sanitize(await post("/v1internal:retrieveUserQuotaSummary", {}));
 out.retrieveUserQuota = sanitize(await post("/v1internal:retrieveUserQuota", {}));
 out.fetchAvailableModels = sanitize(
   await post("/v1internal:fetchAvailableModels", { project: projectId }),
@@ -139,9 +135,7 @@ const onboardBodies = [
 ];
 
 for (const item of onboardBodies) {
-  out.onboardUserVariants[item.name] = sanitize(
-    await post("/v1internal:onboardUser", item.body),
-  );
+  out.onboardUserVariants[item.name] = sanitize(await post("/v1internal:onboardUser", item.body));
 }
 
 // Extract tier-related fields clearly

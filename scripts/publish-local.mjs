@@ -40,9 +40,12 @@ for (const pkgDir of packageDirs) {
 
   let isPublished = false;
   try {
-    const publishedVersion = execSync(`npm view ${name}@${version} version 2>/dev/null`, {
-      encoding: "utf-8",
-    }).trim();
+    const publishedVersion = execSync(
+      `npm view ${name}@${version} version 2>/dev/null`,
+      {
+        encoding: "utf-8",
+      },
+    ).trim();
     if (publishedVersion === version) {
       isPublished = true;
     }
@@ -51,7 +54,9 @@ for (const pkgDir of packageDirs) {
   }
 
   if (isPublished) {
-    console.log(`⏭️  ${name}@${version} is already published on npm. Skipping.`);
+    console.log(
+      `⏭️  ${name}@${version} is already published on npm. Skipping.`,
+    );
     continue;
   }
 
@@ -59,10 +64,13 @@ for (const pkgDir of packageDirs) {
   try {
     const relPkgDir = path.relative(rootDir, pkgDir);
     const otpFlag = otpArg ? ` ${otpArg}` : "";
-    execSync(`npm publish --workspace="${relPkgDir}" --access public${otpFlag}`, {
-      stdio: "inherit",
-      cwd: rootDir,
-    });
+    execSync(
+      `npm publish --workspace="${relPkgDir}" --access public${otpFlag}`,
+      {
+        stdio: "inherit",
+        cwd: rootDir,
+      },
+    );
     console.log(`✅ Successfully published ${name}@${version}!`);
   } catch (error) {
     console.error(`❌ Failed to publish ${name}:`, error.message);

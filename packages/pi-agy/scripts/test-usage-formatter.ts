@@ -22,7 +22,7 @@ const out = formatUsageSummary({
 
 assert(
   out.includes("needs a paid subscription") || out.includes("free-tier can't use that endpoint"),
-  "Formatter failed to classify #3501 missing license message as a subscription error"
+  "Formatter failed to classify #3501 missing license message as a subscription error",
 );
 
 console.log("Usage formatter tests passed!");

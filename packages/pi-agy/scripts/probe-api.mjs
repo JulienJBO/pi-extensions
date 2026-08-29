@@ -70,9 +70,7 @@ results.push(
   }),
 );
 
-results.push(
-  await probe("fetchAvailableModels_empty", "/v1internal:fetchAvailableModels", {}),
-);
+results.push(await probe("fetchAvailableModels_empty", "/v1internal:fetchAvailableModels", {}));
 
 results.push(
   await probe("retrieveUserQuota", "/v1internal:retrieveUserQuota", {
@@ -80,9 +78,7 @@ results.push(
   }),
 );
 
-results.push(
-  await probe("retrieveUserQuota_empty", "/v1internal:retrieveUserQuota", {}),
-);
+results.push(await probe("retrieveUserQuota_empty", "/v1internal:retrieveUserQuota", {}));
 
 results.push(
   await probe("retrieveUserQuotaSummary", "/v1internal:retrieveUserQuotaSummary", {

@@ -1,0 +1,50 @@
+{
+  "name": "pi-skill-updates",
+  "version": "0.1.0",
+  "description": "Scans installed agent skills, checks for remote updates across GitHub and registries, and provides update notifications and commands for Pi coding agent",
+  "author": "Shakthi Sagar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakthi-sagar/pi-extensions.git",
+    "directory": "packages/pi-skill-updates"
+  },
+  "homepage": "https://github.com/shakthi-sagar/pi-extensions/tree/main/packages/pi-skill-updates#readme",
+  "bugs": {
+    "url": "https://github.com/shakthi-sagar/pi-extensions/issues"
+  },
+  "type": "module",
+  "main": "./src/index.ts",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "skills",
+    "skill-updates",
+    "agent-skills",
+    "updater"
+  ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "src",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx scripts/test-scan.ts"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": ">=0.80.0",
+    "@earendil-works/pi-coding-agent": ">=0.80.0"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^0.84.2",
+    "@earendil-works/pi-coding-agent": "^0.84.2",
+    "typescript": "^5.7.3"
+  }
+}
