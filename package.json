@@ -16,8 +16,7 @@
     "publish:all": "node scripts/publish-local.mjs",
     "publish:agy": "node scripts/publish-local.mjs pi-agy",
     "publish:title": "node scripts/publish-local.mjs pi-auto-session-title",
-    "publish:theme": "node scripts/publish-local.mjs pi-theme",
-    "publish:skills": "node scripts/publish-local.mjs pi-skill-updates"
+    "publish:skill-updates": "node scripts/publish-local.mjs pi-skill-updates"
   },
   "devDependencies": {
     "@earendil-works/pi-ai": "^0.84.2",
