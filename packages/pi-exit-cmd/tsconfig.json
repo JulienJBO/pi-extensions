@@ -3,5 +3,5 @@
   "compilerOptions": {
     "rootDir": "."
   },
-  "include": ["pi-exit-cmd.ts"]
+  "include": ["index.ts"]
 }

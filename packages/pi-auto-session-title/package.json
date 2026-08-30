@@ -1,6 +1,6 @@
 {
   "name": "pi-auto-session-title",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Automatically generates concise, descriptive session titles for Pi coding agent sessions",
   "author": "Shakthi Sagar",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "url": "https://github.com/shakthi-sagar/pi-extensions/issues"
   },
   "type": "module",
-  "main": "./pi-auto-session-title.ts",
+  "main": "./index.ts",
   "keywords": [
     "pi-package",
     "pi-extension",
@@ -25,7 +25,7 @@
   "files": [
     "LICENSE",
     "README.md",
-    "pi-auto-session-title.ts",
+    "index.ts",
     "tsconfig.json"
   ],
   "scripts": {
@@ -33,7 +33,7 @@
   },
   "pi": {
     "extensions": [
-      "./pi-auto-session-title.ts"
+      "./index.ts"
     ]
   },
   "peerDependencies": {

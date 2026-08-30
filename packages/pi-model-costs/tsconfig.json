@@ -3,5 +3,5 @@
   "compilerOptions": {
     "rootDir": "."
   },
-  "include": ["pi-model-cost.ts"]
+  "include": ["index.ts"]
 }

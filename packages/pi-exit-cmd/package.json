@@ -1,6 +1,6 @@
 {
   "name": "pi-exit-cmd",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Adds an /exit command that gracefully exits the Pi coding agent",
   "author": "Shakthi Sagar",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "url": "https://github.com/shakthi-sagar/pi-extensions/issues"
   },
   "type": "module",
-  "main": "./pi-exit-cmd.ts",
+  "main": "./index.ts",
   "keywords": [
     "pi-package",
     "pi-extension",
@@ -24,7 +24,7 @@
   "files": [
     "LICENSE",
     "README.md",
-    "pi-exit-cmd.ts",
+    "index.ts",
     "tsconfig.json"
   ],
   "scripts": {
@@ -32,7 +32,7 @@
   },
   "pi": {
     "extensions": [
-      "./pi-exit-cmd.ts"
+      "./index.ts"
     ]
   },
   "peerDependencies": {

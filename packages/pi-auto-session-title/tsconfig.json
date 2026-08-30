@@ -3,5 +3,5 @@
   "compilerOptions": {
     "rootDir": "."
   },
-  "include": ["pi-auto-session-title.ts"]
+  "include": ["index.ts"]
 }
