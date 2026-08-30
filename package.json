@@ -16,7 +16,9 @@
     "publish:all": "node scripts/publish-local.mjs",
     "publish:agy": "node scripts/publish-local.mjs pi-agy",
     "publish:title": "node scripts/publish-local.mjs pi-auto-session-title",
-    "publish:skill-updates": "node scripts/publish-local.mjs pi-skill-updates"
+    "publish:skill-updates": "node scripts/publish-local.mjs pi-skill-updates",
+    "publish:exit": "node scripts/publish-local.mjs pi-exit-cmd",
+    "publish:model-costs": "node scripts/publish-local.mjs pi-model-costs"
   },
   "devDependencies": {
     "@earendil-works/pi-ai": "^0.84.2",

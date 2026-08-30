@@ -1,0 +1,52 @@
+{
+  "name": "@shakthi-sagar/pi-model-costs",
+  "version": "0.1.0",
+  "description": "Shows per-million-token input and output prices in Pi's /model selector",
+  "author": "Shakthi Sagar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakthi-sagar/pi-extensions.git",
+    "directory": "packages/pi-model-costs"
+  },
+  "homepage": "https://github.com/shakthi-sagar/pi-extensions/tree/main/packages/pi-model-costs#readme",
+  "bugs": {
+    "url": "https://github.com/shakthi-sagar/pi-extensions/issues"
+  },
+  "type": "module",
+  "main": "./src/index.ts",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "models",
+    "pricing",
+    "cost"
+  ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "src",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": ">=0.84.0",
+    "@earendil-works/pi-tui": ">=0.84.0"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^0.84.3",
+    "@earendil-works/pi-coding-agent": "^0.84.3",
+    "@earendil-works/pi-tui": "^0.84.3",
+    "typescript": "^5.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
