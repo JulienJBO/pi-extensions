@@ -16,6 +16,30 @@ function textFromContent(content: unknown): string {
     .join("\n");
 }
 
+function hasTitleworthyUserPrompt(
+  entries: Array<{ message: { role: string; content?: unknown } }>,
+): boolean {
+  const userText = entries
+    .filter((entry) => entry.message.role === "user")
+    .map((entry) => textFromContent(entry.message.content).trim())
+    .filter(Boolean)
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (!userText) return false;
+
+  const normalized = userText
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return !/^(?:hi|hello|hey|yo|sup|test|testing|thanks|thank you|ok|okay|bye|goodbye)$/.test(
+    normalized,
+  );
+}
+
 function cleanTitle(raw: string): string | undefined {
   const title = raw
     .split("\n")
@@ -40,20 +64,25 @@ export default function (pi: ExtensionAPI) {
 
   pi.on("agent_settled", async (_event, ctx) => {
     if (attempted || pi.getSessionName() || !ctx.model) return;
+
+    const messages = ctx.sessionManager.getBranch().filter(
+      (
+        entry,
+      ): entry is typeof entry & {
+        message: { role: string; content?: unknown };
+      } =>
+        entry.type === "message" &&
+        "role" in entry.message &&
+        (entry.message.role === "user" || entry.message.role === "assistant"),
+    );
+
+    // Avoid forcing the model to invent specificity for content-free sessions.
+    // Do not mark the attempt complete, so a later substantive prompt can retry.
+    if (!hasTitleworthyUserPrompt(messages)) return;
+
     attempted = true;
 
-    const conversation = ctx.sessionManager
-      .getBranch()
-      .filter(
-        (
-          entry,
-        ): entry is typeof entry & {
-          message: { role: string; content?: unknown };
-        } =>
-          entry.type === "message" &&
-          "role" in entry.message &&
-          (entry.message.role === "user" || entry.message.role === "assistant"),
-      )
+    const conversation = messages
       .slice(-10)
       .map((entry) => {
         const text = textFromContent(entry.message.content)
@@ -72,7 +101,8 @@ export default function (pi: ExtensionAPI) {
         ctx.model,
         {
           systemPrompt:
-            "Write a specific, searchable 3-7 word title for this coding session. " +
+            "Write a specific, searchable 3-7 word title grounded only in the supplied " +
+            "conversation. Never invent technologies, tasks, or details not present in it. " +
             "Return only the title with no quotes, markdown, or prefix.",
           messages: [
             {
