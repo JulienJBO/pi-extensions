@@ -1,6 +1,6 @@
 {
   "name": "pi-agy",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Antigravity / Cloud Code Assist provider for Pi with multi-account quota failover",
   "author": "Rahul Arya",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "url": "https://github.com/shakthi-sagar/pi-extensions/issues"
   },
   "type": "module",
-  "main": "./src/index.ts",
+  "main": "./index.ts",
   "keywords": [
     "pi-package",
     "pi-extension",
@@ -26,6 +26,7 @@
   "files": [
     "LICENSE",
     "README.md",
+    "index.ts",
     "src",
     "tsconfig.json"
   ],
@@ -43,7 +44,7 @@
   },
   "pi": {
     "extensions": [
-      "./src/index.ts"
+      "./index.ts"
     ]
   },
   "peerDependencies": {

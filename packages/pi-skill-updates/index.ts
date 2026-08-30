@@ -3,10 +3,10 @@ import type {
   ExtensionCommandContext,
   ExtensionContext,
 } from "@earendil-works/pi-coding-agent";
-import { scanAllSkills } from "./scanner.js";
-import type { SkillScanResult } from "./types.js";
-import { formatScanMarkdown, formatShortHash } from "./ui.js";
-import { updateAllOutdatedSkills, updateSingleSkill } from "./updater.js";
+import { scanAllSkills } from "./src/scanner.js";
+import type { SkillScanResult } from "./src/types.js";
+import { formatScanMarkdown, formatShortHash } from "./src/ui.js";
+import { updateAllOutdatedSkills, updateSingleSkill } from "./src/updater.js";
 
 export default function (pi: ExtensionAPI) {
   let lastScanResult: SkillScanResult | null = null;

@@ -1,9 +1,9 @@
 import type { ExtensionAPI, ExtensionCommandContext } from "@earendil-works/pi-coding-agent";
 import type { OAuthLoginCallbacks } from "@earendil-works/pi-ai";
-import { getApiKey, refreshAntigravityToken } from "./auth/index.js";
-import { DEFAULT_ENDPOINT, endpointCandidates } from "./client/index.js";
-import { getLastDiagnostics, runWithDiagnostics } from "./diagnostics/index.js";
-import { ANTIGRAVITY_MODELS, PROVIDER_ID, PROVIDER_NAME } from "./models/index.js";
+import { getApiKey, refreshAntigravityToken } from "./src/auth/index.js";
+import { DEFAULT_ENDPOINT, endpointCandidates } from "./src/client/index.js";
+import { getLastDiagnostics, runWithDiagnostics } from "./src/diagnostics/index.js";
+import { ANTIGRAVITY_MODELS, PROVIDER_ID, PROVIDER_NAME } from "./src/models/index.js";
 import {
   AntigravityAccountPool,
   getLinkedAccounts,
@@ -11,15 +11,15 @@ import {
   handleLoginWithManagement,
   showInteractiveAccountDashboard,
   type AntigravityAccount,
-} from "./accounts/index.js";
-import { ANTIGRAVITY_API, createAntigravityStream } from "./stream/index.js";
+} from "./src/accounts/index.js";
+import { ANTIGRAVITY_API, createAntigravityStream } from "./src/stream/index.js";
 import {
   fetchAccountUsage,
   formatModelsList,
   formatUsageSummary,
   resolveApiKeyFromContext,
-} from "./usage/index.js";
-import { prewarmConnection, redactSecrets } from "./utils/index.js";
+} from "./src/usage/index.js";
+import { prewarmConnection, redactSecrets } from "./src/utils/index.js";
 
 /**
  * Pi's interactive `notify` writes into the chat transcript. `console.log` in that

@@ -1,6 +1,6 @@
 {
   "name": "pi-skill-updates",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scans installed agent skills, checks for remote updates across GitHub and registries, and provides update notifications and commands for Pi coding agent",
   "author": "Shakthi Sagar",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "url": "https://github.com/shakthi-sagar/pi-extensions/issues"
   },
   "type": "module",
-  "main": "./src/index.ts",
+  "main": "./index.ts",
   "keywords": [
     "pi-package",
     "pi-extension",
@@ -26,6 +26,7 @@
   "files": [
     "LICENSE",
     "README.md",
+    "index.ts",
     "src",
     "tsconfig.json"
   ],
@@ -35,7 +36,7 @@
   },
   "pi": {
     "extensions": [
-      "./src/index.ts"
+      "./index.ts"
     ]
   },
   "peerDependencies": {
