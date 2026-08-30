@@ -12,7 +12,7 @@ All prices are USD per one million tokens. `↑` is input, `↓` is output, and 
 ## Install
 
 ```bash
-pi install npm:@shakthi-sagar/pi-model-costs
+pi install npm:pi-model-cost
 ```
 
 Restart Pi or run `/reload`, then open `/model`.

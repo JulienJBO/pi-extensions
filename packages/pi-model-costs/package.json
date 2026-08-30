@@ -1,5 +1,5 @@
 {
-  "name": "@shakthi-sagar/pi-model-costs",
+  "name": "pi-model-cost",
   "version": "0.1.0",
   "description": "Shows per-million-token input and output prices in Pi's /model selector",
   "author": "Shakthi Sagar",

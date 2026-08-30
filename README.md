@@ -13,7 +13,7 @@ Each package in this repository is published independently to npm and can be ins
 | [`pi-agy`](./packages/pi-agy)                               | `0.6.0` | Antigravity / Cloud Code Assist provider with multi-account quota failover                  | `pi install npm:pi-agy`                |
 | [`pi-auto-session-title`](./packages/pi-auto-session-title) | `0.1.0` | Automatically generates concise, searchable titles for your sessions                        | `pi install npm:pi-auto-session-title` |
 | [`pi-exit-cmd`](./packages/pi-exit-cmd)                     | `1.0.0` | Adds an `/exit` command to gracefully exit the Pi coding agent                              | `pi install npm:pi-exit-cmd`           |
-| [`pi-model-costs`](./packages/pi-model-costs)               | `0.1.0` | Shows model input and output pricing in the `/model` selector                               | `pi install npm:@shakthi-sagar/pi-model-costs` |
+| [`pi-model-cost`](./packages/pi-model-costs)                | `0.1.0` | Shows model input and output pricing in the `/model` selector                               | `pi install npm:pi-model-cost`         |
 | [`pi-skill-updates`](./packages/pi-skill-updates)           | `0.1.0` | Scans installed skills, checks for remote updates, and provides interactive update commands | `pi install npm:pi-skill-updates`      |
 
 ---
