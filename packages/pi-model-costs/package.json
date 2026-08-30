@@ -1,6 +1,6 @@
 {
   "name": "pi-model-cost",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Shows per-million-token input and output prices in Pi's /model selector",
   "author": "Shakthi Sagar",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "url": "https://github.com/shakthi-sagar/pi-extensions/issues"
   },
   "type": "module",
-  "main": "./src/index.ts",
+  "main": "./pi-model-cost.ts",
   "keywords": [
     "pi-package",
     "pi-extension",
@@ -25,7 +25,7 @@
   "files": [
     "LICENSE",
     "README.md",
-    "src",
+    "pi-model-cost.ts",
     "tsconfig.json"
   ],
   "scripts": {
@@ -33,7 +33,7 @@
   },
   "pi": {
     "extensions": [
-      "./src/index.ts"
+      "./pi-model-cost.ts"
     ]
   },
   "peerDependencies": {
