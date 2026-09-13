@@ -389,7 +389,7 @@ export function buildRequest(
 
   const generationConfig: GeminiGenerationConfig = {};
   if (options.temperature !== undefined) generationConfig.temperature = options.temperature;
-  if (runtimeModel === "gemini-3.7-flash-tiered") {
+  if (runtimeModel === "gemini-3.7-flash-tiered" || runtimeModel === "gemini-3.8-flash-tiered") {
     const effort = options.reasoning ?? "off";
     generationConfig.thinkingConfig = {
       thinkingLevel:

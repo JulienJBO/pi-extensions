@@ -138,7 +138,7 @@ async function smokeOne(publicId) {
       runtimeModel = candidates[i];
       const isClaude = publicId.startsWith("claude-") || runtimeModel.startsWith("claude-");
       const generationConfig = { maxOutputTokens: 256 };
-      if (runtimeModel === "gemini-3.7-flash-tiered") {
+      if (runtimeModel === "gemini-3.7-flash-tiered" || runtimeModel === "gemini-3.8-flash-tiered") {
         generationConfig.thinkingConfig = {
           thinkingLevel:
             EFFORT === "high" || EFFORT === "xhigh"

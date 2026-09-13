@@ -9,6 +9,7 @@ export const PROVIDER_NAME = "Antigravity";
  * Public selectable model IDs → backend request model IDs by thinking effort.
  *
  * Catalog mirrors `agy models` (Antigravity CLI), which currently advertises:
+ * - Gemini 3.8 Flash (Low / Medium / High)
  * - Gemini 3.7 Flash (Low / Medium / High)
  * - Gemini 3.6 Flash (Low / Medium / High)
  * - Gemini 3.5 Flash (Low / Medium / High)
@@ -20,7 +21,9 @@ export const PROVIDER_NAME = "Antigravity";
  * Pi exposes those as public model IDs and only surfaces the exact thinking levels
  * advertised by the backend for each model.
  *
- * Note: Gemini 3.7 Flash is exposed by Cloud Code Assist as one tiered runtime.
+ * Note: Gemini 3.8 and 3.7 Flash are exposed by Cloud Code Assist as one tiered runtime each
+ * (`gemini-3.8-flash-tiered` / `gemini-3.7-flash-tiered`), even though `agy models` lists
+ * per-effort labels (`…-high` / `…-medium` / `…-low`) that 404 on streamGenerateContent.
  * The requested thinking effort is sent separately in generationConfig.thinkingConfig.
  */
 export const ANTIGRAVITY_ROUTING: Record<string, AntigravityRouting> = {
@@ -57,6 +60,19 @@ export const ANTIGRAVITY_ROUTING: Record<string, AntigravityRouting> = {
       xhigh: "gemini-pro-agent",
     },
     defaultRequestId: "gemini-3.1-pro-low",
+  },
+  "gemini-3.8-flash": {
+    // `agy models` presents Low/Medium/High labels, but fetchAvailableModels exposes
+    // one requestable runtime ID. Thinking effort belongs in thinkingConfig.
+    off: "gemini-3.8-flash-tiered",
+    routing: {
+      minimal: "gemini-3.8-flash-tiered",
+      low: "gemini-3.8-flash-tiered",
+      medium: "gemini-3.8-flash-tiered",
+      high: "gemini-3.8-flash-tiered",
+      xhigh: "gemini-3.8-flash-tiered",
+    },
+    defaultRequestId: "gemini-3.8-flash-tiered",
   },
   "gemini-3.7-flash": {
     // `agy models` presents Low/Medium/High labels, but fetchAvailableModels exposes
@@ -112,6 +128,8 @@ export const ANTIGRAVITY_ROUTING: Record<string, AntigravityRouting> = {
  * Requesting more than these limits returns a 400 Bad Request from the API.
  */
 export const RUNTIME_MAX_OUTPUT_TOKENS: Record<string, number> = {
+  "gemini-3.8-flash": 65536,
+  "gemini-3.8-flash-tiered": 65536,
   "gemini-3.7-flash": 65536,
   "gemini-3.7-flash-tiered": 65536,
   // Retain rollout-era IDs for compatibility with pinned runtime overrides.
@@ -199,6 +217,16 @@ const thinkingLevelMaps = {
 
 /** Same set as `agy models`, collapsed to public Pi model IDs. */
 export const ANTIGRAVITY_MODELS: ProviderModelConfig[] = [
+  {
+    id: "gemini-3.8-flash",
+    name: "Gemini 3.8 Flash (Antigravity)",
+    reasoning: true,
+    thinkingLevelMap: thinkingLevelMaps.lowMediumHigh,
+    input: ["text", "image"],
+    cost: freeCost,
+    contextWindow: 1048576,
+    maxTokens: 65536,
+  },
   {
     id: "gemini-3.7-flash",
     name: "Gemini 3.7 Flash (Antigravity)",
@@ -308,6 +336,11 @@ export function getAntigravityRequestModelId(modelId: string, effort: string | u
  * provide a fallback runtime model ID (e.g. Gemini 3.6 Flash) to maintain availability.
  */
 export function getFallbackRuntimeModel(runtimeModel: string, effort?: string): string | undefined {
+  // Route through the 3.7 routing table rather than rewriting the id suffix: 3.7 Flash has no
+  // per-effort runtime id, so `gemini-3.8-flash-high` -> `gemini-3.7-flash-high` would 404.
+  if (runtimeModel === "gemini-3.8-flash-tiered" || runtimeModel === "gemini-3.8-flash") {
+    return getAntigravityRequestModelId("gemini-3.7-flash", effort);
+  }
   if (runtimeModel === "gemini-3.7-flash-tiered") {
     return getAntigravityRequestModelId("gemini-3.6-flash", effort);
   }

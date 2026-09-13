@@ -1,6 +1,6 @@
 {
   "name": "pi-agy",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Antigravity / Cloud Code Assist provider for Pi with multi-account quota failover",
   "author": "Rahul Arya",
   "license": "MIT",
